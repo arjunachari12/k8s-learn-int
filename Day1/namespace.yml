@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: project2
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: my-namespace-quota
+  namespace: project2
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: "4Gi"
+    limits.cpu: "4"
+    limits.memory: "8Gi"  
+    pods: "20"
+    deployment: "30"
